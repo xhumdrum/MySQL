@@ -33,18 +33,18 @@
         
  ## 第五步、添加能从远程访问的 root 账号
 10. 执行 SQL 命令
->  MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.0.%' IDENTIFIED BY '密码' WITH GRANT OPTION;
+> MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.0.%' IDENTIFIED BY '密码' WITH GRANT OPTION;
 > Query OK, 0 rows affected (0.227 sec)
 11. 验证结果，输入命令
->  MariaDB [(none)]> select user,host from mysql.user where host<>'localhost';
->  +------+-------------+
->  | user | host        |
->  +------+-------------+
->  | root | 127.0.0.1   |
->  | root | 192.168.0.% |
->  | root | ::1         |
->  +------+-------------+
->  3 rows in set (0.022 sec)
+> MariaDB [(none)]> select user,host from mysql.user where host<>'localhost';
+> +------+-------------+
+> | user | host        |
+> +------+-------------+
+> | root | 127.0.0.1   |
+> | root | 192.168.0.% |
+> | root | ::1         |
+> +------+-------------+
+> 3 rows in set (0.022 sec)
           
   ## 第六步、打开 MySQL 图形客户端 SQLYog，新建连接，输入 IP：192.168.0.111，端口号 3307，以及root和登录密码，即可连接
   
