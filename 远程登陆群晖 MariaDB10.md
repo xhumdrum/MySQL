@@ -6,7 +6,7 @@
 
 ## 第二步、打开 SSH 终端 （Win10 中可以直接打开 cmd 命令行窗口，其他 OS 中可以下载 PuTTY 来连接 SSH）
 4. 输入命令
-> ssh -p 22 xiaxiang@192.168.0.111    ( 22:端口号 xiaxiang:登录的用户名 192.168.0.111:群晖 NAS 的IP ）
+'ssh -p 22 xiaxiang@192.168.0.111    ( 22:端口号 xiaxiang:登录的用户名 192.168.0.111:群晖 NAS 的IP ）'
 5. 屏幕上出现
 > xiaxiang@192.168.0.111's password:  ( 输入登录密码 )
 6. 屏幕上出现
