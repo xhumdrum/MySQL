@@ -21,15 +21,15 @@
 > xiaxiang@xyHomeServer:/usr/local/mariadb10/bin$ ./mysql -uroot -p
 > Enter password: ( 输入 MariaDB10 的 root 用户登录密码)
 9. 屏幕显示
-> Welcome to the MariaDB monitor.  Commands end with ; or \g.
-> Your MariaDB connection id is 14
-> Server version: 10.3.21-MariaDB Source distribution
-> 
-> Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-> 
-> Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-> 
-> MariaDB [(none)]>
+''' Welcome to the MariaDB monitor.  Commands end with ; or \g.
+''' Your MariaDB connection id is 14
+''' Server version: 10.3.21-MariaDB Source distribution
+''' 
+''' Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+''' 
+''' Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+''' 
+''' MariaDB [(none)]>
         
  ## 第五步、添加能从远程访问的 root 账号
 10. 执行 SQL 命令
