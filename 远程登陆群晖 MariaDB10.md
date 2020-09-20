@@ -34,11 +34,9 @@
  ## 第五步、添加能从远程访问的 root 账号
 10. 执行 SQL 命令
 >  MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.0.%' IDENTIFIED BY '密码' WITH GRANT OPTION;
-    屏幕显示结果
 > Query OK, 0 rows affected (0.227 sec)
 11. 验证结果，输入命令
 >  MariaDB [(none)]> select user,host from mysql.user where host<>'localhost';
-    屏幕显示
 >  +------+-------------+
 >  | user | host        |
 >  +------+-------------+
