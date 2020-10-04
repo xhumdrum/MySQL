@@ -33,7 +33,7 @@
 31、Mysql的Execute对应SqlServer的exec; (注意：必须想下面这样调用) Set @cnt=‟select * from 表名‟; Prepare str from @cnt; Execute str;
 32、MySql存储过程调用其他存储过程用call Call 函数名（即SQLServer的存储过程名）（‟参数1‟,‟参数2‟,……）
 33、mysql的日期
-
+```
 1) 获得当前日期函数：curdate()，current_date()
 
 2) 获得当前时间函数：curtime();
@@ -127,7 +127,7 @@
 46) mysql>select   DATE_FORMAT('1997-10-04   22:23:00',   '%H   %k   %I    %r   %T   %S    %w');    
 
 47) ->'22   22   10   10:23:00   PM   22:23:00   00   6'
-
+```
 34、MySql存储过程中没有return函数，在MySql中可以用循环和out参数代替 If EXISTS(SELECT * FROM T_Chance WHERE FCustID=CostomerID) return 0 改写为： （在参数中定义一个out变量：out temp varchar(100);） BEGIN Loop1:loop SELECT count(*) FROM T_Chance WHERE FCustID=CostomerID int @cnt If @cnt>0 then begin set temp=0; leave loop1; end; end if end loop loop1;
 35、select @a=count() from VW_Action 在mySql中修改为：select count() from VW_Action into @a;
 36、MySQL中没有top关键字，需要用limit代替且放在后面 注意，在MySQL中的limit不能放在子查询内，limit不同与SQLServer,它可 以规定范围 limit a,b——范围a-b SQL SERVER : select top 8 * from table1 MYSQL: select * from table1 limit 5;
