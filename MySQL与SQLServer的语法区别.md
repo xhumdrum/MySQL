@@ -1,37 +1,70 @@
 ### MySQL与SQLServer的语法区别
 
 1、MySQL支持enum,和set类型，SQL Server不支持
+
 2、MySQL不支持nchar,nvarchar,ntext类型
+
 3、MySQL的递增语句是AUTO_INCREMENT，而MS SQL是identity(1,1)
+
 4、MS SQL默认到处表创建语句的默认值表示是((0)),而在MySQL里面是不允许带两括号的
+
 5、MySQL需要为表指定存储类型
+
 6、MS SQL识别符是[],[type]表示他区别于关键字，但是MySQL却是 `，也就是按键1左边的那个符号
+
 7、MS SQL支持getdate()方法获取当前时间日期，但是MySQL里面可以分日期类型和时间类型，获取当前日期是current_date ()，当前完整时间是 now()函数
+
 8、MS SQL不支持replace into 语句，但是在最新的sql20008里面，也支持merge语法
+
 9、MySQL支持insert into table1 set t1 = „‟, t2 = „‟ ,但是MS SQL不支持这样写
+
 10、MySQL支持insert into tabl1 values (1,1), (1,1), (1,1), (1,1), (1,1), (1,1), (1,1)
+
 11、MySQL在创建表时要为每个表指定一个存储引擎类型，而MS SQL只支持一种存储引擎
+
 12、MySQL不支持默认值为当前时间的datetime类型（MS SQL很容易做到），在MySQL里面 是用timestamp类型
-13、MS SQL里面检查是否有这个表再删除，需要这样：if exists (select * from dbo.sysobjects where id = object_id(N’uc_newpm’) and OBJECTPROPERTY(id,N’IsUserTable’)=1) 但是在MySQL里面只需要 DROP TABLE IF EXISTS cdb_forums;
+
+13、MS SQL里面检查是否有这个表再删除，需要这样：if exists (select * from dbo.sysobjects where id = object_id(N’uc_newpm’) and OBJECTPROPERTY(id,N’IsUserTable’)=1) 但是在MySQL里面
+只需要 DROP TABLE IF EXISTS cdb_forums;
+
 14、MySQL支持无符号型的整数，那么比不支持无符号型的MS SQL就能多出一倍的最大数 存储
+
 15、MySQL不支持在MS SQL里面使用非常方便的varchar(max)类型，这个类型在MS SQL里 面既可做一般数据存储，也可以做blob数据存储
+
 16、MySQL创建非聚集索引只需要在创建表的时候指定为key就行，比如：KEY displayorder (fid,displayorder) 在MS SQL里面必须要：create unique nonclustered index index_uc_protectedmembers_username_appid on dbo.uc_protectedmembers (username asc,appid asc)
+
 17、MySQL text字段类型不允许有默认值
+
 18、MySQL的一个表的总共字段长度不超过65XXX。
+
 19、一个很表面的区别就是MySQL的安装特别简单，而且文件大小才110M（非安装版），相 比微软这个庞然大物，安装进度来说简直就是…
+
 20、MySQL的存储过程只是出现在最新的版本中，稳定性和性能可能不如MS SQL。
+
 21、同样的负载压力，MySQL要消耗更少的CPU和内存，MS SQL的确是很耗资源。
+
 22、MySQL的ifnull()函数对应sql的isnull()函数;
+
 23、MySQL的存储过程中变量的定义去掉@;
+
 24、MySQL的每句结束要用";"
+
 25、SQLServer存储过程的AS在MySql中需要用begin …end替换
+
 26、字符串连接用concat()函数;如 SQLServer: Temp=‟select * from ‟+‟tablename‟+…+… MySql:Temp=concat(‟select * from‟, ‟tablecname‟,…,…)
+
 27、MySQL的uuid()对应mssql的GUID();
+
 28、MySql的out对应SQLServer的output,且mysql 的out要放在变量的前面，SQLServer 的output放在变量后面
+
 29、MySql out,in,inout的区别——MySQL 存储过程 “in” 参数：跟 C 语言的函数参 数的值传递类似， MySQL 存储过程内部可能会修改此参数，但对 in 类型参数的修改，对调用者（caller）来说是不可见的（not visible）。MySQL 存储过程 “out” 参数：从存储过程内部传值给调用者。在存储过程内部，该参数初始值为 null，无论调用者是否给存储过程参数设置值。MySQL 存储过程 inout 参数跟 out 类似，都可以从存储过程内部传值给调用者。不同的是：调用者还可以通过 inout 参数传递值给存储过程。
+
 30、MySQL的if语句为 if (条件) then end if; 或者 If (条件) then Else End if 或者 If（条件）then Elseif (注意不能写成 Else if ) Elseif … End if
+
 31、Mysql的Execute对应SqlServer的exec; (注意：必须想下面这样调用) Set @cnt=‟select * from 表名‟; Prepare str from @cnt; Execute str;
+
 32、MySql存储过程调用其他存储过程用call Call 函数名（即SQLServer的存储过程名）（‟参数1‟,‟参数2‟,……）
+
 33、mysql的日期
 ```
 1) 获得当前日期函数：curdate()，current_date()
@@ -128,10 +161,15 @@
 
 47) ->'22   22   10   10:23:00   PM   22:23:00   00   6'
 ```
+
 34、MySql存储过程中没有return函数，在MySql中可以用循环和out参数代替 If EXISTS(SELECT * FROM T_Chance WHERE FCustID=CostomerID) return 0 改写为： （在参数中定义一个out变量：out temp varchar(100);） BEGIN Loop1:loop SELECT count(*) FROM T_Chance WHERE FCustID=CostomerID int @cnt If @cnt>0 then begin set temp=0; leave loop1; end; end if end loop loop1;
+
 35、select @a=count() from VW_Action 在mySql中修改为：select count() from VW_Action into @a;
+
 36、MySQL中没有top关键字，需要用limit代替且放在后面 注意，在MySQL中的limit不能放在子查询内，limit不同与SQLServer,它可 以规定范围 limit a,b——范围a-b SQL SERVER : select top 8 * from table1 MYSQL: select * from table1 limit 5;
+
 37、即使存储过程没有参数也要写括号“（）”
+
 38、当一个存储过程中有创建临时表时 create procedure up_test () begin drop table if exists tb1; create TEMPORARY table tb1//注意添加TEMPORARY table ( id int, name varchar(20) );//注意最后加分号 insert tb1 values(‘1’,‘jim’); select * from tb1; end
 
 39、建表中自增长问题： create table user ( Id varchar(10) primary key auto_increment not null, Name varchar(20) not null, Password varchar(20), create_date datetime ); auto_increment 自增长
